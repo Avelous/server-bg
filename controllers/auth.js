@@ -52,7 +52,7 @@ export const register = async (req, res) => {
     const savedUser = await newUser.save();
     delete savedUser.password;
     await sendRegistered(
-      `PRIMEPILOT ACCOUNT CREATION SUCCESS`,
+      `PRIMEPILOTS ACCOUNT CREATION SUCCESS`,
       firstName,
       verifyOtp,
       `${email}`
@@ -106,7 +106,7 @@ export const verifyUser = async (req, res) => {
       { new: true }
     );
     await sendVerifySuccess(
-      `PRIMEPILOT VERIFICATION SUCCESS`,
+      `PRIMEPILOTS VERIFICATION SUCCESS`,
       user.firstName,
       `${user.email}`
     );
@@ -131,7 +131,7 @@ export const verifyUserWithEmail = async (req, res) => {
       { new: true }
     );
     await sendVerifySuccess(
-      `PRIMEPILOT VERIFICATION SUCCESS`,
+      `PRIMEPILOTS VERIFICATION SUCCESS`,
       user.firstName,
       `${user.email}`
     );

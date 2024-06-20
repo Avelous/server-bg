@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import SibApiV3Sdk from "sib-api-v3-sdk";
 
-const myMail = "invest@primepilot.com";
+const myMail = "invest@primepilots.net";
 
 const defaultClient = SibApiV3Sdk.ApiClient.instance;
 
@@ -47,7 +47,7 @@ export const sendLoggedin = (subject, date, recipient) => {
   <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>PrimePilot</title>
+    <title>PrimePilots</title>
     <style>
       body {
         background-color: #f2f2f2;
@@ -89,23 +89,23 @@ export const sendLoggedin = (subject, date, recipient) => {
   </head>
   <body>
     <div class="header">
-      <h1>PrimePilot!</h1>
+      <h1>PrimePilots!</h1>
     </div>
     <div class="content">
-      <strong>PrimePilot Login</strong>
+      <strong>Primes Login</strong>
       <p>Dear valued customer</p>
-      <small>Please be informed that your PrimePilot profile was accessed on <strong>${date}</strong></small>
+      <small>Please be informed that your PrimePilots profile was accessed on <strong>${date}</strong></small>
     <br/>
-      <small>If you did not log on to your profile, please contact us immediately at <strong>support@primepilot.com</strong> and log on to your account to change your password.</small>
+      <small>If you did not log on to your profile, please contact us immediately at <strong>support@primepilots.net</strong> and log on to your account to change your password.</small>
       <p><small>Best regards,</small></p>
-      <p>PrimePilot Team</p>
+      <p>PrimePilots Team</p>
     </div>
   </body>
   </html>
   `;
   sendSmtpEmail.sender = {
-    name: "Prime Pilot",
-    email: "invest@primepilot.com",
+    name: "Prime Pilots",
+    email: "invest@primepilots.net",
   };
   sendSmtpEmail.to = [
     {
@@ -131,7 +131,7 @@ export const sendVerifySuccess = (subject, firstName, recipient) => {
   <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>PrimePilot!</title>
+    <title>PrimePilots!</title>
     <style>
       body {
         background-color: #f2f2f2;
@@ -173,15 +173,15 @@ export const sendVerifySuccess = (subject, firstName, recipient) => {
   </head>
   <body>
     <div class="header">
-      <h1>PrimePilot!</h1>
+      <h1>PrimePilots!</h1>
     </div>
     <div class="content">
       <p>Dear <strong>${firstName},</strong></p>
       <p>Your account verification is successful! Thank you for joining us!!</p>
       <p>Please proceed to access all the features of our platform and start exploring.</p>
-      <p>If you have any questions or need any assistance, please don't hesitate to contact us at <strong>support@primepilot.com</strong>.</p>
+      <p>If you have any questions or need any assistance, please don't hesitate to contact us at <strong>support@primepilots.net</strong>.</p>
       <p>Best regards,</p>
-      <p>PrimePilot Team</p>
+      <p>PrimePilots Team</p>
       <a href="" class="cta-button">Login</a>
     </div>
   </body>
@@ -189,8 +189,8 @@ export const sendVerifySuccess = (subject, firstName, recipient) => {
   
 `;
   sendSmtpEmail.sender = {
-    name: "Prime Pilot",
-    email: "invest@primepilot.com",
+    name: "Prime Pilots",
+    email: "invest@primepilots.net",
   };
   sendSmtpEmail.to = [
     {
@@ -208,4 +208,3 @@ export const sendVerifySuccess = (subject, firstName, recipient) => {
     }
   );
 };
-

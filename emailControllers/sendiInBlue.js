@@ -16,8 +16,8 @@ export const sendBlueEmail = (subject, body, recipient) => {
   sendSmtpEmail.subject = subject;
   sendSmtpEmail.htmlContent = `<html><body><p>${body}</p></body></html>`;
   sendSmtpEmail.sender = {
-    name: "Prime Pilot",
-    email: "invest@primepilot.com",
+    name: "Prime Pilots",
+    email: "invest@primepilots.net",
   };
   sendSmtpEmail.to = [
     {
@@ -44,7 +44,7 @@ export const sendRegistered = (subject, firstname, code, recipient) => {
   <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Welcome to PrimePilot!</title>
+    <title>Welcome to PrimePilots!</title>
     <style>
       body {
         background-color: #f2f2f2;
@@ -86,24 +86,24 @@ export const sendRegistered = (subject, firstname, code, recipient) => {
   </head>
   <body>
     <div class="header">
-      <h1>Welcome to PrimePilot!</h1>
+      <h1>Welcome to PrimePilots!</h1>
     </div>
     <div class="content">
       <p>Dear <strong>${firstname},</strong></p>
       <p>Thank you for joining our community! We're excited to have you on board.</p>
       <P>Your verification code is <strong>${code}</strong></P>
       <p>Verify you account to access all the features of our platform and start exploring.</p>
-      <p>If you have any questions or need any assistance, please don't hesitate to contact us at <strong>support@primepilot.com</strong>.</p>
+      <p>If you have any questions or need any assistance, please don't hesitate to contact us at <strong>support@primepilots.net</strong>.</p>
       <p>Best regards,</p>
-      <p>PrimePilot Team</p>
+      <p>PrimePilots Team</p>
       <a href="" class="cta-button">Login</a>
     </div>
   </body>
   </html>
   `;
   sendSmtpEmail.sender = {
-    name: "Prime Pilot",
-    email: "invest@primepilot.com",
+    name: "Prime Pilots",
+    email: "invest@primepilots.net",
   };
   sendSmtpEmail.to = [
     {
