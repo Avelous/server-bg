@@ -21,11 +21,9 @@ export const createInvestmentFromBalance = async (req, res) => {
     await newInvestment.save();
     const investment = await Investment.find();
 
-    const updatedUser = await User.findByIdAndUpdate(
-      userId,
-      { balance: user.balance - amount },
-      { new: true }
-    );
+    user.balance = user.balance - amount;
+    await user.save();
+
     res.status(201).json(investment);
   } catch (err) {
     res.status(409).json({ message: err.message });
@@ -59,23 +57,22 @@ export const endInvestment = async (req, res) => {
     const { id, userId } = req.body;
     const investment = await Investment.findById(id);
 
-    const updatedInvestment = await Investment.findByIdAndUpdate(
-      id,
-      { active: false },
-      { new: true }
-    );
+    console.log(investment.active)
+    if (investment.active == false) {
+      return res.status(404).json({ message: "Investment already ended" });
+    }
 
-    // res.status(200).json(updatedInvestment);
+    investment.active = false;
+    await investment.save();
+
     const allInvestment = await Investment.find();
 
     const user = await User.findById(userId);
-    const updatedUser = await User.findByIdAndUpdate(
-      userId,
-      { balance: user.balance + investment.amount + investment.profit },
-      { earnings: user.earnings + investment.profit },
-      { new: true }
-    );
-    
+
+    user.balance = user.balance + investment.amount + investment.expectedProfit;
+    user.earnings = user.earnings + investment.expectedProfit;
+    await user.save();
+    console.log(user.balance);
     res.status(200).json(allInvestment);
 
     // res.status(200).json(updatedUser);

@@ -18,13 +18,11 @@ export const changePassword = async (req, res) => {
     const user = await User.findById(id);
 
     const isMatch = oldPassword == user.password;
-    if (!isMatch) return res.status(400).json({ msg: "Invalid Current Password. " });
+    if (!isMatch)
+      return res.status(400).json({ msg: "Invalid Current Password. " });
 
-    const updatedUser = await User.findByIdAndUpdate(
-      id,
-      { password: newPassword },
-      { new: true }
-    );
+    user.password = newPassword;
+    await user.save();
 
     res.status(200).json(updatedUser);
   } catch (err) {

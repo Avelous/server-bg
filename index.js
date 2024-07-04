@@ -16,9 +16,6 @@ import withdrawalRoutes from "./routes/withdrawals.js";
 import { register } from "./controllers/auth.js";
 import { getInvestments } from "./controllers/investments.js";
 import { verifyToken } from "./middleware/auth.js";
-import User from "./models/User.js";
-import Investment from "./models/Investment.js";
-import { sendBlueEmail } from "./emailControllers/sendiInBlue.js";
 
 /* CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url);
@@ -79,10 +76,6 @@ const connectWithRetry = () => {
         res.send({ title: "users" });
       });
       app.listen(PORT, () => console.log(`Connected to Server Port: ${PORT}`));
-
-      /* ADD DATA ONE TIME */
-      // User.insertMany(users);
-      // Post.insertMany(posts);
     })
     .catch((error) => {
       console.log(`${error} did not connect`);

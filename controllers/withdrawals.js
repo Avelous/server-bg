@@ -29,14 +29,9 @@ export const createWithdrawal = async (req, res) => {
     await newWithdrawal.save();
     const withdrawal = await Withdrawal.find();
 
-    const updatedUser = await User.findByIdAndUpdate(
-      userId,
-      {
-        balance: user.balance - amount,
-        withdrawals: parseFloat(user.withdrawals) + parseFloat(amount),
-      },
-      { new: true }
-    );
+    user.balance = user.balance - amount;
+    user.withdrawals = parseFloat(user.withdrawals) + parseFloat(amount);
+
     await res.status(201).json(withdrawal);
   } catch (err) {
     console.log(`error: ${err}`);
